@@ -1,9 +1,7 @@
 <template>
-  <div>
+  <div class="history">
     <app-navigation :routes="routes" />
-    <div class="container">
-      <elements-list />
-    </div>
+    <app-history :historyType="type" />
   </div>
 </template>
 
@@ -12,14 +10,21 @@ import { defineComponent, computed } from "vue";
 import { useStore } from "vuex";
 import { key } from "@/store/index";
 
-import ElementsList from "@/components/ElementsList.vue";
+
 import AppNavigation from "@/components/AppNavigation.vue";
+import AppHistory from "@/components/AppHistory.vue";
 
 export default defineComponent({
   name: "HomeView",
   components: {
-    ElementsList,
-    AppNavigation
+    AppNavigation,
+    AppHistory
+  },
+  props: {
+    type: {
+      type: String,
+      required: true,
+    }
   },
   setup() {
     const store = useStore(key);
@@ -27,3 +32,5 @@ export default defineComponent({
   }
 });
 </script>
+
+<style lang="scss" scoped></style>
