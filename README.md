@@ -1,4 +1,4 @@
-# bell-integrator
+# Vue3-item-list
 
 ## Project setup
 ```
